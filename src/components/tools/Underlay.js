@@ -5,9 +5,13 @@ export const Underlay = () => {
 
     const [isGradientUsed, setIsGradientUsed] = useState(true)
 
+    const [tempUnderlayColor, setTempUnderlayColor] = useState('')
+
     const [underlayColors, setUnderlayColors] = useState([])
 
-
+    const onInputTempUnderlayColor = (event) => {
+        setTempUnderlayColor(event.target.value)
+    }
 
     const onUseGradientToggle = () => {      
     }
@@ -19,7 +23,7 @@ export const Underlay = () => {
             const newUnderlayColor = {
                 id: Date.now(),
                 position: 100 / underlayColors.length || 0,
-                underlayColor: event.target.value
+                underlayColor: tempUnderlayColor
             }
             setUnderlayColors([...underlayColors, newUnderlayColor])         
         }
@@ -33,12 +37,13 @@ export const Underlay = () => {
                 <label htmlFor="isGradUsed">использовать градиент</label>
             </span>
             <span>
-                <input type="color" id="underlayColor" onInput={onAddUnderlayColor} />
+                <input type="color" id="underlayColor" value = {tempUnderlayColor} onInput={onInputTempUnderlayColor} />
                 <button onClick={onAddUnderlayColor} style={{color: "red"}} >добавить цвет</button>
             </span>
             <ul>
-                {underlayColors.map(underlayColor => {return <li>
-                        <span style={{backgroundColor: underlayColor}}></span>
+                {underlayColors.map(underlayColor => {
+                    return <li>
+                        <span style={{color: underlayColor.underlayColor}}>цвет настроения</span>
                     </li>
                 })}
             </ul>
