@@ -1,0 +1,34 @@
+.tools_elem {
+    display: block;
+    border: blue 1px solid;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0 auto 10px;
+}
+.tools_elem:hover {
+    border: blue 2px solid;
+}
+.tools_elem input {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    border: inherit;
+}
+.tools_elem button {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+}
+.tools_elem span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tools_elem span input {
+    width: 30%;
+}
+.tools_elem span button {
+    width: auto;
+}
+
