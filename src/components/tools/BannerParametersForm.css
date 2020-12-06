@@ -25,8 +25,9 @@
     justify-content: space-between;
     align-items: center;
 }
-.tools_elem span input {
-    width: 30%;
+.tools_elem span input.sm {
+    width: 20%;
+    margin-left: 10px;
 }
 .tools_elem span button {
     width: auto;

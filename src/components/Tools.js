@@ -3,6 +3,7 @@ import { BannerParametersForm } from "./tools/BannerParametersForm"
 import { Buttons } from "./tools/Buttons"
 import { Destination } from "./tools/Destination"
 import { PictureParam } from "./tools/PictureParam"
+import { Title } from "./tools/Title"
 import { Underlay } from "./tools/Underlay"
 
 
@@ -13,6 +14,7 @@ export const Tools = ()=> {
             <BannerParametersForm />
             <Underlay />
             <PictureParam />
+            <Title />
             <Destination />
             <Buttons />
 

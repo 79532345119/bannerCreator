@@ -32,13 +32,9 @@ export const Underlay = () => {
     return (
         <form className="tools_elem">
             <span>
-                <input type="checkbox" id="isGradUsed" checked={isGradientUsed} 
+                <input type="checkbox" id="isGradUsed" className="sm" checked={isGradientUsed} 
                 onChange={onUseGradientToggle} />
                 <label htmlFor="isGradUsed">использовать градиент</label>
-            </span>
-            <span>
-                <input type="color" id="underlayColor" value = {tempUnderlayColor} onInput={onInputTempUnderlayColor} />
-                <button onClick={onAddUnderlayColor} style={{color: "red"}} >добавить цвет</button>
             </span>
             <ul>
                 {underlayColors.map(underlayColor => {
@@ -47,6 +43,11 @@ export const Underlay = () => {
                     </li>
                 })}
             </ul>
+            <span>
+                <input type="color" id="underlayColor" className="sm" value = {tempUnderlayColor} onInput={onInputTempUnderlayColor} />
+                <button onClick={onAddUnderlayColor} style={{color: "red"}} >добавить цвет</button>
+            </span>
+
 
 
         </form>
