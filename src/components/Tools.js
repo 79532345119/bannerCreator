@@ -14,7 +14,7 @@ export const Tools = (props)=> {
             <h1>Tools</h1>
             <BannerParametersForm bannerParams = {props.bannerParams} setBannerSize = {props.setBannerSize} />
             <Underlay underlayColors={props.bannerParams.underlayColors} onAddUnderlayColor = {props.onAddUnderlayColor} onDeleteUnderlayColor = {props.onDeleteUnderlayColor}/>
-            <PictureParam />
+            <PictureParam picLink={props.bannerParams.picLink} setPicLink={props.setPicLink} picScale={props.bannerParams.picScale} setPicScale={props.setPicScale} />
             <Title />
             <Destination />
             <Buttons />
