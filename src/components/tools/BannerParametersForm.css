@@ -32,4 +32,7 @@
 .tools_elem span button {
     width: auto;
 }
+.tools_elem span label {
+    width: 100%;
+}
 
