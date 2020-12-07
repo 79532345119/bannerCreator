@@ -5,6 +5,7 @@ html, body {
 
 .content {
     max-width: 1270px;
+    max-height: 100vh;
     margin: 0 auto;
 }
 .row {

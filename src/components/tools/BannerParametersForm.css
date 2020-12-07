@@ -12,7 +12,7 @@
     display: block;
     width: 100%;
     margin-bottom: 5px;
-    border: inherit;
+    border: blue 1px solid;
 }
 .tools_elem button {
     display: block;
@@ -27,7 +27,6 @@
 }
 .tools_elem span input.sm {
     width: 20%;
-    margin-left: 10px;
 }
 .tools_elem span button {
     width: auto;
