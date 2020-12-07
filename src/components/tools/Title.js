@@ -15,13 +15,13 @@ export const Title = () => {
     }
 
 
-    const [primaryTitleVaue, setPrimaryTitleValue] = useState('')
+    const [primaryTitleValue, setPrimaryTitleValue] = useState('')
     const onPrimaryTitleValueSet = (event) => {
         setPrimaryTitleValue(event.target.value)
     }
 
 
-    const [secondaryTitleVaue, setSecondaryTitleValue] = useState('')
+    const [secondaryTitleValue, setSecondaryTitleValue] = useState('')
     const onSecondaryTitleValueSet =(event) => {
         setSecondaryTitleValue(event.target.value)
     }
@@ -29,15 +29,15 @@ export const Title = () => {
         <div className="tools_elem">
             <label htmlFor="title">введите слоган</label>
             <span>
-                <i class="material-icons">format_size</i>
+                <i className="material-icons">format_size</i>
                 <input type="number" className="sm" value = {primaryFontSize} onChange={onPrimaryFontSizeSet} />
-                <input type="text" id="title" placeholder="введите слоган" value={primaryTitleVaue} onChange={onPrimaryTitleValueSet}/>
+                <input type="text" id="title" placeholder="введите слоган" value={primaryTitleValue} onChange={onPrimaryTitleValueSet}/>
             </span>
             
             <span>
-                <i class="material-icons">format_size</i>
+                <i className="material-icons">format_size</i>
                 <input type="number" className="sm" value = {secondaryFontSize} onChange={onSecondaryFontSizeSet} />
-                <input type="text" placeholder="введите слоган" value={secondaryTitleVaue} onChange={onSecondaryTitleValueSet}/>
+                <input type="text" placeholder="введите слоган" value={secondaryTitleValue} onChange={onSecondaryTitleValueSet}/>
             </span>
             
         </div>

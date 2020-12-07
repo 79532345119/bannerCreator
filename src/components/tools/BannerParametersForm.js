@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import "./BannerParametersForm.css" 
 
 
-export const BannerParametersForm = () => {
-
+export const BannerParametersForm = (props) => {
+    
     const [widthValue, setWidthValue] = useState (600)
     const [heightValue, setHeightValue] = useState (900)
     const [borderRadiusValue, setborderRadiusValueValue] = useState (15)
@@ -20,7 +20,12 @@ export const BannerParametersForm = () => {
     }
     const onBannerSizeSubmit = (event) => {
         event.preventDefault()
-        console.log(event.target[0].value)
+        const bannerSize = {}
+        bannerSize.widthValue = event.target[0].value
+        bannerSize.heightValue = event.target[1].value
+        bannerSize.borderRadiusValue = event.target[2].value
+        props.setBannerSize(bannerSize)
+
     }
 
     return (
@@ -40,7 +45,6 @@ export const BannerParametersForm = () => {
                     onChange = {onborderRadiusInput}
                     placeholder = "задайте скругление" />
             <button type="submit">применить</button>
-
         </form>
     )
 }

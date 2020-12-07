@@ -7,17 +7,17 @@ import { Title } from "./tools/Title"
 import { Underlay } from "./tools/Underlay"
 
 
-export const Tools = ()=> {
+export const Tools = (props)=> {
+    console.log(props)
     return (
         <div className = "col">
             <h1>Tools</h1>
-            <BannerParametersForm />
-            <Underlay />
+            <BannerParametersForm bannerParams = {props.bannerParams} setBannerSize = {props.setBannerSize} />
+            <Underlay underlayColors={props.bannerParams.underlayColors} onAddUnderlayColor = {props.onAddUnderlayColor} onDeleteUnderlayColor = {props.onDeleteUnderlayColor}/>
             <PictureParam />
             <Title />
             <Destination />
             <Buttons />
-
         </div>
     )
 }

@@ -1,51 +1,33 @@
 import React, { useState } from "react"
 
 
-export const Underlay = () => {
+export const Underlay = (props) => {
 
-    const [isGradientUsed, setIsGradientUsed] = useState(true)
-
-    const [tempUnderlayColor, setTempUnderlayColor] = useState('')
-
-    const [underlayColors, setUnderlayColors] = useState([])
+    const [tempUnderlayColor, setTempUnderlayColor] = useState("#00008b")
 
     const onInputTempUnderlayColor = (event) => {
         setTempUnderlayColor(event.target.value)
     }
 
-    const onUseGradientToggle = () => {      
-    }
-    const onAddUnderlayColor = (event) => {
-        if(!isGradientUsed) {
-            return setUnderlayColors(event.target.value)
-        } else {
-            event.preventDefault()
-            const newUnderlayColor = {
-                id: Date.now(),
-                position: 100 / underlayColors.length || 0,
-                underlayColor: tempUnderlayColor
-            }
-            setUnderlayColors([...underlayColors, newUnderlayColor])         
-        }
-    }
 
     return (
-        <form className="tools_elem">
-            <span>
-                <input type="checkbox" id="isGradUsed" className="sm" checked={isGradientUsed} 
-                onChange={onUseGradientToggle} />
-                <label htmlFor="isGradUsed">использовать градиент</label>
-            </span>
+        <form onSubmit={e=>e.preventDefault()} className="tools_elem">
+
             <ul>
-                {underlayColors.map(underlayColor => {
-                    return <li>
-                        <span style={{color: underlayColor.underlayColor}}>цвет настроения</span>
+                {props.underlayColors.map(underlayColor => {
+                    return <li key={underlayColor.id}>
+                        <span style={{color: underlayColor.color}}>цвет настроения<i className="material-icons" onClick={props.onDeleteUnderlayColor.bind('null', underlayColor.id)}>delete</i></span>
                     </li>
                 })}
             </ul>
             <span>
                 <input type="color" id="underlayColor" className="sm" value = {tempUnderlayColor} onInput={onInputTempUnderlayColor} />
-                <button onClick={onAddUnderlayColor} style={{color: "red"}} >добавить цвет</button>
+                
+                <button onClick={
+
+                    props.onAddUnderlayColor.bind(null, tempUnderlayColor)
+                    
+                    }  style={{color: "red"}} >добавить цвет</button>
             </span>
 
 
