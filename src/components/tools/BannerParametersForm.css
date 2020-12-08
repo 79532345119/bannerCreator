@@ -4,6 +4,7 @@
     border-radius: 5px;
     padding: 1rem;
     margin: 0 auto 10px;
+    background-color: lightgray;
 }
 .tools_elem:hover {
     border: blue 2px solid;
@@ -19,7 +20,12 @@
     width: 100%;
     padding: 5px;
     margin: 10px 0;
+    box-shadow: 5px 5px lightslategray;
+    transition-duration: 0.5s;
 }
+button:hover {
+    box-shadow: 2px 2px lightslategray;
+ }
 .tools_elem span {
     display: flex;
     justify-content: space-between;

@@ -1,17 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 
 
 export const PictureParam =(props) => {
-    const [picLink, setPicLink] = useState('')
-    const [picScale, setPicScale] = useState(100)
-
-    const picLinkHandler = (event) => {
-        setPicLink(event.target.value)
-    }
-
-    const picScaleHandler = (event) => {
-        setPicScale(event.target.value)
-    }
 
     return (
         <div className = "tools_elem">

@@ -62,12 +62,52 @@ const setPicScale = (scale) => {
     picScale: scale
   })
 }
+
+const setPrimaryFontSize = (fs) => {
+  setBannerParams({
+    ...bannerParams,
+    primaryFontSize: fs
+  })
+}
+
+const setPrimaryTitleValue = (title) => {
+  setBannerParams({
+    ...bannerParams,
+    primaryTitleValue: title
+  })
+}
+
+const setSecondaryFontSize = (fs) => {
+  setBannerParams({
+    ...bannerParams,
+    secondaryFontSize: fs
+  })
+}
+
+const setSecondaryTitleValue = (title) => {
+  setBannerParams({
+    ...bannerParams,
+    secondaryTitleValue: title
+  })
+}
+
+const setDestLink = (link) => {
+  setBannerParams({
+    ...bannerParams,
+    destLink: link
+  })
+}
+
   return (
     <div className = "content">
       <div className="row">
-        <Preview />
-        <Tools bannerParams = {bannerParams} setBannerSize = {setBannerSize} onAddUnderlayColor = {setUnderlayColors} onDeleteUnderlayColor = {onDeleteUnderlayColor} 
+        <Preview bannerParams = {bannerParams} />
+        <Tools bannerParams = {bannerParams} setBannerSize = {setBannerSize} 
+               onAddUnderlayColor = {setUnderlayColors} onDeleteUnderlayColor = {onDeleteUnderlayColor} 
                setPicLink = {setPicLink} setPicScale = {setPicScale}
+               setPrimaryFontSize = {setPrimaryFontSize} setPrimaryTitleValue = {setPrimaryTitleValue}
+               setSecondaryFontSize = {setSecondaryFontSize} setSecondaryTitleValue = {setSecondaryTitleValue}
+               setDestLink = {setDestLink}
         />
       </div>
     </div>

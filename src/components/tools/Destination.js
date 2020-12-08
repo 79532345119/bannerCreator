@@ -1,18 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 
 
-export const Destination = () => {
-
-    const [destLink, setDestLink] = useState('')
-    const destLinkHandler = 
-        event => {
-            setDestLink(event.target.value)
-        }
-    
+export const Destination = (props) => {
+   
     return (
         <div className="tools_elem" >
             <label htmlFor="destLink">ссылка, куда ведет баннер</label>
-            <input type="text" id="destLink" value={destLink} onChange={destLinkHandler} />
+            <input type="text" id="destLink" value={props.destLink} onChange={e=>props.setDestLink(e.target.value)} />
         </div>       
     )
 }

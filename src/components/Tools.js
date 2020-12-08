@@ -10,13 +10,23 @@ import { Underlay } from "./tools/Underlay"
 export const Tools = (props)=> {
     console.log(props)
     return (
-        <div className = "col">
-            <h1>Tools</h1>
+        <div className = "col pt2">
             <BannerParametersForm bannerParams = {props.bannerParams} setBannerSize = {props.setBannerSize} />
-            <Underlay underlayColors={props.bannerParams.underlayColors} onAddUnderlayColor = {props.onAddUnderlayColor} onDeleteUnderlayColor = {props.onDeleteUnderlayColor}/>
-            <PictureParam picLink={props.bannerParams.picLink} setPicLink={props.setPicLink} picScale={props.bannerParams.picScale} setPicScale={props.setPicScale} />
-            <Title />
-            <Destination />
+            <Underlay underlayColors={props.bannerParams.underlayColors} 
+                      onAddUnderlayColor = {props.onAddUnderlayColor} 
+                      onDeleteUnderlayColor = {props.onDeleteUnderlayColor}/>
+            <PictureParam picLink={props.bannerParams.picLink} 
+                          setPicLink={props.setPicLink} picScale={props.bannerParams.picScale} 
+                          setPicScale={props.setPicScale} />
+            <Title primaryFontSize={props.bannerParams.primaryFontSize} 
+                   setPrimaryFontSize={props.setPrimaryFontSize} 
+                   primaryTitleValue={props.bannerParams.primaryTitleValue} 
+                   setPrimaryTitleValue={props.setPrimaryTitleValue}
+                   secondaryFontSize={props.bannerParams.secondaryFontSize}
+                   setSecondaryFontSize={props.setSecondaryFontSize}
+                   secondaryTitleValue={props.bannerParams.secondaryTitleValue}
+                   setSecondaryTitleValue={props.setSecondaryTitleValue} />
+            <Destination destLink={props.bannerParams.destLink} setDestLink={props.setDestLink} />
             <Buttons />
         </div>
     )
