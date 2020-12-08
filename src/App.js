@@ -31,7 +31,6 @@ const setBannerSize = (bannerSize) => {
 const [colors, setColors] = useState([])
 
 const setUnderlayColors = (color) => {
-  debugger
   const newColor = {
     id: Date.now(),
     color: color
