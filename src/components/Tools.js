@@ -13,8 +13,8 @@ export const Tools = (props)=> {
         <div className = "col">
             <h1>Tools</h1>
             <BannerParametersForm bannerParams = {props.bannerParams} setBannerSize = {props.setBannerSize} />
-            <Underlay onAddUnderlayColor = {props.onAddUnderlayColor} underlayColor = {props.underlayColor}/>
-            <PictureParam />
+            <Underlay underlayColors={props.bannerParams.underlayColors} onAddUnderlayColor = {props.onAddUnderlayColor} onDeleteUnderlayColor = {props.onDeleteUnderlayColor}/>
+            <PictureParam picLink={props.bannerParams.picLink} setPicLink={props.setPicLink} picScale={props.bannerParams.picScale} setPicScale={props.setPicScale} />
             <Title />
             <Destination />
             <Buttons />

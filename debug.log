@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+[1206/091333.229:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+=======
 [1207/094441.768:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+>>>>>>> b3df2ba0597b61f9c028cbe0f1f115a388a66d2a

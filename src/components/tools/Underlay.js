@@ -14,14 +14,15 @@ export const Underlay = (props) => {
         <form onSubmit={e=>e.preventDefault()} className="tools_elem">
 
             <ul>
-                {props.underlayColor.map(underlayColor => {
+                {props.underlayColors.map(underlayColor => {
                     return <li key={underlayColor.id}>
-                        <span style={{color: underlayColor.color}}>цвет настроения</span>
+                        <span style={{color: underlayColor.color}}>цвет настроения<i className="material-icons" onClick={props.onDeleteUnderlayColor.bind('null', underlayColor.id)}>delete</i></span>
                     </li>
                 })}
             </ul>
             <span>
                 <input type="color" id="underlayColor" className="sm" value = {tempUnderlayColor} onInput={onInputTempUnderlayColor} />
+                
                 <button onClick={
 
                     props.onAddUnderlayColor.bind(null, tempUnderlayColor)
