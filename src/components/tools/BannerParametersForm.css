@@ -32,7 +32,7 @@ button:hover {
     align-items: center;
 }
 .tools_elem span input.sm {
-    width: 20%;
+    width: 50px;
 }
 .tools_elem span button {
     width: auto;

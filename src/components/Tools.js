@@ -22,10 +22,20 @@ export const Tools = (props)=> {
                    setPrimaryFontSize={props.setPrimaryFontSize} 
                    primaryTitleValue={props.bannerParams.primaryTitleValue} 
                    setPrimaryTitleValue={props.setPrimaryTitleValue}
+                   primaryFontSizeColor={props.bannerParams.primaryFontSizeColor}
+                   setPrimaryFontSizeColor={props.setPrimaryFontSizeColor}
+                   secondaryFontSizeColor={props.bannerParams.secondaryFontSizeColor}
+                   setSecondaryFontSizeColor={props.setSecondaryFontSizeColor}
                    secondaryFontSize={props.bannerParams.secondaryFontSize}
                    setSecondaryFontSize={props.setSecondaryFontSize}
                    secondaryTitleValue={props.bannerParams.secondaryTitleValue}
-                   setSecondaryTitleValue={props.setSecondaryTitleValue} />
+                   setSecondaryTitleValue={props.setSecondaryTitleValue} 
+                   secondary2FontSizeColor={props.bannerParams.secondary2FontSizeColor}
+                   setSecondary2FontSizeColor={props.setSecondary2FontSizeColor}
+                   secondary2FontSize={props.bannerParams.secondary2FontSize}
+                   setSecondary2FontSize={props.setSecondary2FontSize}
+                   secondary2TitleValue={props.bannerParams.secondary2TitleValue}
+                   setSecondary2TitleValue={props.setSecondary2TitleValue} />
             <Destination destLink={props.bannerParams.destLink} setDestLink={props.setDestLink} />
             <Buttons />
         </div>

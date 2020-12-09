@@ -10,12 +10,17 @@ const [bannerParams, setBannerParams] = useState({
   heightValue: 900,
   borderRadiusValue: 15,
   underlayColors: [],
-  picLink: 'hei',
+  picLink: "https://www.pngkit.com/png/full/1-19983_new-car-png-car-png-for-picsart.png",
   picScale: 99,
   primaryFontSize: 24,
   secondaryFontSize: 14,
+  secondary2FontSize: 14,
+  primaryFontSizeColor:"#000000",
+  secondaryFontSizeColor:"#000000",
+  secondary2FontSizeColor:"#000000",
   primaryTitleValue: '',
   secondaryTitleValue: '',
+  secondary2TitleValue: '',
   destLink: '',
 })
 
@@ -77,6 +82,13 @@ const setPrimaryTitleValue = (title) => {
   })
 }
 
+const setPrimaryFontSizeColor = (color) => {
+  setBannerParams({
+    ...bannerParams,
+    primaryFontSizeColor: color  
+  })
+}
+
 const setSecondaryFontSize = (fs) => {
   setBannerParams({
     ...bannerParams,
@@ -88,6 +100,31 @@ const setSecondaryTitleValue = (title) => {
   setBannerParams({
     ...bannerParams,
     secondaryTitleValue: title
+  })
+}
+const setSecondaryFontSizeColor = (color) =>  {
+  setBannerParams({
+    ...bannerParams,
+    secondaryFontSizeColor: color
+  })
+}
+const setSecondary2FontSize = (fs) => {
+  setBannerParams({
+    ...bannerParams,
+    secondary2FontSize: fs
+  })
+}
+
+const setSecondary2TitleValue = (title) => {
+  setBannerParams({
+    ...bannerParams,
+    secondary2TitleValue: title
+  })
+}
+const setSecondary2FontSizeColor = (color) =>  {
+  setBannerParams({
+    ...bannerParams,
+    secondary2FontSizeColor: color
   })
 }
 
@@ -107,6 +144,9 @@ const setDestLink = (link) => {
                setPicLink = {setPicLink} setPicScale = {setPicScale}
                setPrimaryFontSize = {setPrimaryFontSize} setPrimaryTitleValue = {setPrimaryTitleValue}
                setSecondaryFontSize = {setSecondaryFontSize} setSecondaryTitleValue = {setSecondaryTitleValue}
+               setSecondary2FontSize = {setSecondary2FontSize} setSecondary2TitleValue = {setSecondary2TitleValue}
+               setPrimaryFontSizeColor = {setPrimaryFontSizeColor} setSecondaryFontSizeColor={setSecondaryFontSizeColor}
+               setSecondary2FontSizeColor={setSecondary2FontSizeColor}
                setDestLink = {setDestLink}
         />
       </div>
