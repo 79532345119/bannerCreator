@@ -4,9 +4,9 @@ import "./BannerParametersForm.css"
 
 export const BannerParametersForm = (props) => {
     
-    const [widthValue, setWidthValue] = useState (600)
-    const [heightValue, setHeightValue] = useState (900)
-    const [borderRadiusValue, setborderRadiusValueValue] = useState (15)
+    const [width, setWidthValue] = useState (600)
+    const [height, setHeightValue] = useState (900)
+    const [borderRadius, setborderRadiusValueValue] = useState (15)
 
 
     const onWidthInput = (event) => {
@@ -21,9 +21,10 @@ export const BannerParametersForm = (props) => {
     const onBannerSizeSubmit = (event) => {
         event.preventDefault()
         const bannerSize = {}
-        bannerSize.widthValue = event.target[0].value
-        bannerSize.heightValue = event.target[1].value
-        bannerSize.borderRadiusValue = event.target[2].value
+        bannerSize.width = event.target[0].value
+        bannerSize.height = event.target[1].value
+        bannerSize.borderRadius = event.target[2].value
+        bannerSize.ratio = bannerSize.width / bannerSize.height
         props.setBannerSize(bannerSize)
 
     }
@@ -33,15 +34,15 @@ export const BannerParametersForm = (props) => {
         <form className ="tools_elem" onSubmit={onBannerSizeSubmit}>
         <h3>Параметры баннера</h3>
             <label htmlFor="widthValue">ширина</label>
-            <input type="number" id="widthValue" value = {widthValue} 
+            <input type="number" id="widthValue" value = {width} 
                     onChange = {onWidthInput}
                     placeholder = "введите ширину банера" />
             <label htmlFor="heightValue">высота</label>            
-            <input type="number" id="heightValue" value = {heightValue} 
+            <input type="number" id="heightValue" value = {height} 
                     onChange = {onHeightInput}
                     placeholder = "введите высоту банера" />
             <label htmlFor="borderRadiusValue">скругление</label>
-            <input type="number" id="borderRadiusValue" value = {borderRadiusValue} 
+            <input type="number" id="borderRadiusValue" value = {borderRadius} 
                     onChange = {onborderRadiusInput}
                     placeholder = "задайте скругление" />
             <button type="submit">применить</button>

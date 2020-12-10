@@ -6,12 +6,20 @@ import { Tools } from './components/Tools';
 function App() {
 
 const [bannerParams, setBannerParams] = useState({
-  widthValue: 600,
-  heightValue: 900,
-  borderRadiusValue: 15,
+  bannerSize: {
+    width: 600,
+    height: 900,
+    borderRadius: 15,
+    ratio: 1
+  }, 
   underlayColors: [],
-  picLink: "https://www.pngkit.com/png/full/1-19983_new-car-png-car-png-for-picsart.png",
-  picScale: 99,
+  picture: {
+    link: "https://www.pngkit.com/png/full/1-19983_new-car-png-car-png-for-picsart.png",
+    scale: 99,
+    x: 10,
+    y: 10,
+    isSelected: false
+  },
   primaryFontSize: 24,
   secondaryFontSize: 14,
   secondary2FontSize: 14,
@@ -25,12 +33,11 @@ const [bannerParams, setBannerParams] = useState({
 })
 
 const setBannerSize = (bannerSize) => {
-  setBannerParams({   
+
+  setBannerParams({
     ...bannerParams,
-    widthValue: bannerSize.widthValue,
-    heightValue: bannerSize.heightValue,
-    borderRadiusValue: bannerSize.borderRadiusValue}
-  )
+    bannerSize: bannerSize 
+  })
 }
 
 const setUnderlayColors = (color) => {
@@ -57,15 +64,56 @@ const onDeleteUnderlayColor = (id) => {
 const setPicLink = (link) => {
   setBannerParams({
     ...bannerParams,
-    picLink: link
+    picture: {
+      ...bannerParams.picture,
+      link
+    }
   })
 }
 
 const setPicScale = (scale) => {
   setBannerParams({
     ...bannerParams,
-    picScale: scale
+    picture: {
+      ...bannerParams.picture,
+      scale
+    }
   })
+}
+
+const onMouseDown = (data) => {
+  if(bannerParams.picture.scale * bannerParams.bannerSize.ratio + bannerParams.picture.y + 10 >= data.clientY) {
+    setBannerParams({
+      ...bannerParams,
+      picture: {
+        ...bannerParams.picture,
+        isSelected: true
+      }
+    })
+  }
+}
+
+const onMouseUp = () => {
+    setBannerParams({
+      ...bannerParams,
+      picture: {
+        ...bannerParams.picture,
+        isSelected: false
+      }
+    })
+}
+
+const onMouseMove = (data) => {
+  if(bannerParams.picture.isSelected) {
+    setBannerParams({
+      ...bannerParams,
+      picture: {
+        ...bannerParams.picture,
+        x: bannerParams.picture.x+data.movementX,
+        y: bannerParams.picture.y+data.movementY
+      }
+    })
+  } 
 }
 
 const setPrimaryFontSize = (fs) => {
@@ -138,7 +186,9 @@ const setDestLink = (link) => {
   return (
     <div className = "content">
       <div className="row">
-        <Preview bannerParams = {bannerParams} />
+        <Preview bannerParams = {bannerParams} 
+                 onMouseDown = {onMouseDown} onMouseUp = {onMouseUp} onMouseMove = {onMouseMove}
+        />
         <Tools bannerParams = {bannerParams} setBannerSize = {setBannerSize} 
                onAddUnderlayColor = {setUnderlayColors} onDeleteUnderlayColor = {onDeleteUnderlayColor} 
                setPicLink = {setPicLink} setPicScale = {setPicScale}

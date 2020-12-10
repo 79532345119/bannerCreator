@@ -7,7 +7,7 @@
     background-color: lightgray;
 }
 .tools_elem:hover {
-    border: blue 2px solid;
+    border: blue 4px solid;
 }
 .tools_elem input {
     display: block;

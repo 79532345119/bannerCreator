@@ -11,12 +11,13 @@ export const Tools = (props)=> {
     console.log(props)
     return (
         <div className = "col pt2">
-            <BannerParametersForm bannerParams = {props.bannerParams} setBannerSize = {props.setBannerSize} />
+            <BannerParametersForm bannerParams = {props.bannerParams.bannerSize} 
+                                  setBannerSize = {props.setBannerSize} />
             <Underlay underlayColors={props.bannerParams.underlayColors} 
                       onAddUnderlayColor = {props.onAddUnderlayColor} 
                       onDeleteUnderlayColor = {props.onDeleteUnderlayColor}/>
-            <PictureParam picLink={props.bannerParams.picLink} 
-                          setPicLink={props.setPicLink} picScale={props.bannerParams.picScale} 
+            <PictureParam picLink={props.bannerParams.picture.link} 
+                          setPicLink={props.setPicLink} picScale={props.bannerParams.picture.scale} 
                           setPicScale={props.setPicScale} />
             <Title primaryFontSize={props.bannerParams.primaryFontSize} 
                    setPrimaryFontSize={props.setPrimaryFontSize} 
