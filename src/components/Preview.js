@@ -3,7 +3,6 @@ import React, { useEffect } from "react"
 export const Preview = (props) => {
 
   const params = props.bannerParams
-  const ratio = params.bannerSize.width/params.bannerSize.height
 
   const underlayColorCreator = (data) => {
     const canvas = document.getElementById("canvas")
@@ -33,7 +32,7 @@ export const Preview = (props) => {
         let image = new Image()
         image.src = `${params.picture.link}`
         image.onload = () => {
-          ctx.drawImage(image, params.picture.x, params.picture.y, params.picture.scale, params.picture.scale * ratio);
+          ctx.drawImage(image, params.picture.x, params.picture.y, params.picture.scaleX, params.picture.scaleY);
           ctx.fillStyle=`${params.primaryFontSizeColor}`
           ctx.font=`${params.primaryFontSize}px Arial`
           ctx.fillText(`${params.primaryTitleValue}`, 150, 300)

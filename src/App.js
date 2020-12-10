@@ -15,7 +15,8 @@ const [bannerParams, setBannerParams] = useState({
   underlayColors: [],
   picture: {
     link: "https://www.pngkit.com/png/full/1-19983_new-car-png-car-png-for-picsart.png",
-    scale: 99,
+    scaleX: 100,
+    scaleY: 100,
     x: 10,
     y: 10,
     isSelected: false
@@ -64,18 +65,28 @@ const setPicLink = (link) => {
   })
 }
 
-const setPicScale = (scale) => {
+const setPicScaleX = (scale) => {
   setBannerParams({
     ...bannerParams,
     picture: {
       ...bannerParams.picture,
-      scale
+      scaleX: scale
+    }
+  })
+}
+
+const setPicScaleY = (scale) => {
+  setBannerParams({
+    ...bannerParams,
+    picture: {
+      ...bannerParams.picture,
+      scaleY: scale
     }
   })
 }
 
 const onMouseDown = (data) => {
-  if(bannerParams.picture.scale * bannerParams.bannerSize.ratio + bannerParams.picture.y + 10 >= data.clientY) {
+  if(bannerParams.picture.scaleY + bannerParams.picture.y + 10 >= data.clientY) {
     setBannerParams({
       ...bannerParams,
       picture: {
@@ -152,7 +163,7 @@ const setDestLink = (link) => {
         />
         <Tools bannerParams = {bannerParams} setBannerSize = {setBannerSize} 
                onAddUnderlayColor = {setUnderlayColors} onDeleteUnderlayColor = {onDeleteUnderlayColor} 
-               setPicLink = {setPicLink} setPicScale = {setPicScale}
+               setPicLink = {setPicLink} setPicScaleX = {setPicScaleX} setPicScaleY = {setPicScaleY}
                addTitle = {addTitle} setFontSize = {setFontSize} setFontColor = {setFontColor}
                setDestLink = {setDestLink}
         />
