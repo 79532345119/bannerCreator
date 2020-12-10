@@ -20,15 +20,7 @@ const [bannerParams, setBannerParams] = useState({
     y: 10,
     isSelected: false
   },
-  primaryFontSize: 24,
-  secondaryFontSize: 14,
-  secondary2FontSize: 14,
-  primaryFontSizeColor:"#000000",
-  secondaryFontSizeColor:"#000000",
-  secondary2FontSizeColor:"#000000",
-  primaryTitleValue: '',
-  secondaryTitleValue: '',
-  secondary2TitleValue: '',
+  titles:[], 
   destLink: '',
 })
 
@@ -39,6 +31,7 @@ const setBannerSize = (bannerSize) => {
     bannerSize: bannerSize 
   })
 }
+
 
 const setUnderlayColors = (color) => {
   const newColor = {
@@ -116,63 +109,31 @@ const onMouseMove = (data) => {
   } 
 }
 
-const setPrimaryFontSize = (fs) => {
+const setFontSize = (fs) => {
   setBannerParams({
     ...bannerParams,
-    primaryFontSize: fs
+    fontSize: fs
   })
 }
 
-const setPrimaryTitleValue = (title) => {
+const setFontColor = (color) => {
   setBannerParams({
     ...bannerParams,
-    primaryTitleValue: title
+    fontColor: color
   })
 }
-
-const setPrimaryFontSizeColor = (color) => {
+const addTitle = (title) => {
+  const newTitle = {
+    id: Date.now(),
+    title: title,
+    fontSize: 50,
+    fontColor: "#000000",
+    x:100,
+    y:200
+  }
   setBannerParams({
     ...bannerParams,
-    primaryFontSizeColor: color  
-  })
-}
-
-const setSecondaryFontSize = (fs) => {
-  setBannerParams({
-    ...bannerParams,
-    secondaryFontSize: fs
-  })
-}
-
-const setSecondaryTitleValue = (title) => {
-  setBannerParams({
-    ...bannerParams,
-    secondaryTitleValue: title
-  })
-}
-const setSecondaryFontSizeColor = (color) =>  {
-  setBannerParams({
-    ...bannerParams,
-    secondaryFontSizeColor: color
-  })
-}
-const setSecondary2FontSize = (fs) => {
-  setBannerParams({
-    ...bannerParams,
-    secondary2FontSize: fs
-  })
-}
-
-const setSecondary2TitleValue = (title) => {
-  setBannerParams({
-    ...bannerParams,
-    secondary2TitleValue: title
-  })
-}
-const setSecondary2FontSizeColor = (color) =>  {
-  setBannerParams({
-    ...bannerParams,
-    secondary2FontSizeColor: color
+    titles: [...bannerParams.titles, newTitle]
   })
 }
 
@@ -192,11 +153,7 @@ const setDestLink = (link) => {
         <Tools bannerParams = {bannerParams} setBannerSize = {setBannerSize} 
                onAddUnderlayColor = {setUnderlayColors} onDeleteUnderlayColor = {onDeleteUnderlayColor} 
                setPicLink = {setPicLink} setPicScale = {setPicScale}
-               setPrimaryFontSize = {setPrimaryFontSize} setPrimaryTitleValue = {setPrimaryTitleValue}
-               setSecondaryFontSize = {setSecondaryFontSize} setSecondaryTitleValue = {setSecondaryTitleValue}
-               setSecondary2FontSize = {setSecondary2FontSize} setSecondary2TitleValue = {setSecondary2TitleValue}
-               setPrimaryFontSizeColor = {setPrimaryFontSizeColor} setSecondaryFontSizeColor={setSecondaryFontSizeColor}
-               setSecondary2FontSizeColor={setSecondary2FontSizeColor}
+               addTitle = {addTitle} setFontSize = {setFontSize} setFontColor = {setFontColor}
                setDestLink = {setDestLink}
         />
       </div>
