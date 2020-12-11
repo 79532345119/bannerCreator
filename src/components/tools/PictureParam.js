@@ -9,9 +9,13 @@ export const PictureParam =(props) => {
         <input type="text" placeholder="ссылка на картинку" 
                id="picLink" value={props.picLink} onChange={e=>props.setPicLink(e.target.value)}/>                 
         <label htmlFor="picScale">масштабировать картинку</label>
-        <input type="number" id="picScale" value={props.picScale}
-               onChange={e=>props.setPicScale(e.target.value)}
-            />
+        <span>
+            <input className="sm" type="number" id="picScale" value={props.picScaleX}
+                onChange={e=>props.setPicScaleX(e.target.value)} />
+            <input className="sm" type="number" value={props.picScaleY}
+                onChange={e=>props.setPicScaleY(e.target.value)} />
+        </span>
+
         </div>
     )
 }

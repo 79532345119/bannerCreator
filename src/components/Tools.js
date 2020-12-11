@@ -17,8 +17,8 @@ export const Tools = (props)=> {
                       onAddUnderlayColor = {props.onAddUnderlayColor} 
                       onDeleteUnderlayColor = {props.onDeleteUnderlayColor}/>
             <PictureParam picLink={props.bannerParams.picture.link} 
-                          setPicLink={props.setPicLink} picScale={props.bannerParams.picture.scale} 
-                          setPicScale={props.setPicScale} />
+                          setPicLink={props.setPicLink} picScaleX={props.bannerParams.picture.scaleX} picScaleY={props.bannerParams.picture.scaleY}
+                          setPicScaleX={props.setPicScaleX} setPicScaleY={props.setPicScaleY} />
             <Title titles={props.bannerParams.titles}
                      />
 

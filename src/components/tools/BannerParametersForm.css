@@ -29,7 +29,7 @@ button:hover {
 .tools_elem span {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
 }
 .tools_elem span input.sm {
     width: 50px;
