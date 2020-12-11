@@ -26,7 +26,8 @@ export const Tools = (props)=> {
                 onTitleInput = {props.onTitleInput}
                 setFontColor = {props.setFontColor}
                 setFontSize = {props.setFontSize}
-                onAddLine = {props.onAddLine} />
+                onAddLine = {props.onAddLine}
+                onLineDelete = {props.onLineDelete} />
 
 
 

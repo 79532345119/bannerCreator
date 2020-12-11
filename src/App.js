@@ -128,7 +128,6 @@ const onMouseMove = (data) => {
   } 
 }
 
-
 const onTitleInput = (title, id) => {
   setBannerParams({
     ...bannerParams,
@@ -145,20 +144,48 @@ const onTitleInput = (title, id) => {
           ...item
         }
       }
-      
-
-
-
     })
   })
 }
 
-const setFontSize = (fontSize) => {
+const setFontSize = (fontSize, id) => {
+  setBannerParams({
+    ...bannerParams,
+    titles: bannerParams.titles.map(item=>{
 
+      if(item.id===id) {
+        return {
+          ...item,
+          fontSize
+        }
+      }
+      else{
+        return {
+          ...item
+        }
+      }
+    })
+  })
 }
 
-const setFontColor = (color) => {
+const setFontColor = (fontColor, id) => {
+  setBannerParams({
+    ...bannerParams,
+    titles: bannerParams.titles.map(item=>{
 
+      if(item.id===id) {
+        return {
+          ...item,
+          fontColor
+        }
+      }
+      else{
+        return {
+          ...item
+        }
+      }
+    })
+  })
 }
 
 const onAddLine = () => {
@@ -168,15 +195,23 @@ const onAddLine = () => {
     fontSize: bannerParams.titles[bannerParams.titles.length-1].fontSize,
     fontColor: bannerParams.titles[bannerParams.titles.length-1].fontColor,
     x: bannerParams.titles[bannerParams.titles.length-1].x,
-    y: bannerParams.titles[bannerParams.titles.length-1].y + bannerParams.titles[bannerParams.titles.length-1].fontSize*2
+    y: ((bannerParams.titles[bannerParams.titles.length-1].y + bannerParams.titles[bannerParams.titles.length-1].fontSize*2) < bannerParams.bannerSize.height - 50 ) ? bannerParams.titles[bannerParams.titles.length-1].y + bannerParams.titles[bannerParams.titles.length-1].fontSize*2 : bannerParams.bannerSize.height - 50
     }
   setBannerParams({
     ...bannerParams,
     titles: [...bannerParams.titles, newTitle]
-    }) 
-    
+    })    
 }
 
+const onLineDelete = (id) => {
+  
+ setBannerParams({
+   ...bannerParams,
+   titles: bannerParams.titles.filter(title=> {
+     return title.id !==id
+   })
+ })
+}
 
 const setDestLink = (link) => {
   setBannerParams({
@@ -199,7 +234,7 @@ const setDestLink = (link) => {
                setFontColor = {setFontColor}
                setFontSize = {setFontSize}
                onAddLine = {onAddLine}
-
+               onLineDelete = {onLineDelete}
 
                setDestLink = {setDestLink}
         />
