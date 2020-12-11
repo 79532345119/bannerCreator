@@ -1,52 +1,24 @@
 import React from "react"
 
-const TitleInput = (props) =>{
-
-       return (<form className="tools_elem" onSubmit={e=>{e.preventDefault()
-       console.log(e)}}>
-              <label htmlFor="title">введите слоган</label>
-                     <span>
-                            <i className="material-icons">format_size</i>
-                            <input type="color" className="sm"  />
-                            <input type="number" className="sm"  /> 
-                            <input type="text" id="title" placeholder="введите слоган"  />
-                            <i className="material-icons green" >done</i>
-                            <i className="material-icons" >delete</i>
-                      </span>
-                      <button>добавить строку</button>   
-          </form>
-       )
-}
-
-
-export const Title = (props) => {
-
-       return (<>
-              <TitleInput titles={props.titles} /> 
-              <ul className="tools_elem">
-              {props.titles.map(title=>{
-                     return (
-                            <li key="title.id">
-                     <label htmlFor="title">введите слоган</label>
+export const Title = (props) =>{
+       
+       return (<ul className="tools_elem" >
+                  <label htmlFor="title">введите слоган</label>
+                  <button onClick={props.onAddLine}>добавить строку</button>
+                      
+              { props.titles.map((item, i)=>{
+                     return <li key={item.id}>
                             <span>
                                    <i className="material-icons">format_size</i>
-                                   <input type="color" className="sm" value={title.fontColor} 
-                                          onChange={e=>title.setFontColor(e.target.value)} />
-                                   <input type="number" className="sm" value = {title.fontSize} 
-                                          onChange={e=>title.setFontSize(e.target.value) } /> 
-                                   <input type="text" id="title" placeholder="введите слоган" value={title.title} 
-                                          onChange={e=>title.addTitle(e.target.value)}/>
-                                   <i className="material-icons" onClick={title.onDeleteTitle.bind('null', title.id)}>delete</i>
+                                   <input type="color" className="sm" value = {item.fontColor} onChange = {e=>props.setFontColor(e.target.value)} />
+                                   <input type="number" className="sm" value = {item.fontSize} onChange = {e=>props.setFontSize(e.target.value)} /> 
+                                   <input type="text" id="title" placeholder="введите слоган" value = {item.title} onChange = {e=>props.onTitleInput(e.target.value, item.id)} />
+                                   <i className="material-icons green" >done</i>
+                                   <i className="material-icons" >delete</i>
                             </span>
-                            <button>добавить строку</button>   
-                     </li>
-                     )
-              })}
-              </ul>
-          </>
+                    </li>
+                 })
+              }
+          </ul>
        )
-       
-  
-             
-
 }

@@ -21,7 +21,15 @@ const [bannerParams, setBannerParams] = useState({
     y: 10,
     isSelected: false
   },
-  titles:[], 
+  titles:[
+    { id: Date.now(),
+      title: "первая строка",
+      fontSize: 50,
+      fontColor: "#000000",
+      x:100,
+      y:200
+    }
+  ], 
   destLink: '',
 })
 
@@ -120,33 +128,55 @@ const onMouseMove = (data) => {
   } 
 }
 
-const setFontSize = (fs) => {
+
+const onTitleInput = (title, id) => {
   setBannerParams({
     ...bannerParams,
-    fontSize: fs
+    titles: bannerParams.titles.map(item=>{
+
+      if(item.id===id) {
+        return {
+          ...item,
+          title
+        }
+      }
+      else{
+        return {
+          ...item
+        }
+      }
+      
+
+
+
+    })
   })
 }
 
-const setFontColor = (color) => {
-  setBannerParams({
-    ...bannerParams,
-    fontColor: color
-  })
+const setFontSize = (fontSize) => {
+
 }
-const addTitle = (title) => {
+
+const setFontColor = (color) => {
+
+}
+
+const onAddLine = () => {
   const newTitle = {
     id: Date.now(),
-    title: title,
-    fontSize: 50,
-    fontColor: "#000000",
-    x:100,
-    y:200
-  }
+    title: "",
+    fontSize: bannerParams.titles[bannerParams.titles.length-1].fontSize,
+    fontColor: bannerParams.titles[bannerParams.titles.length-1].fontColor,
+    x: bannerParams.titles[bannerParams.titles.length-1].x,
+    y: bannerParams.titles[bannerParams.titles.length-1].y + bannerParams.titles[bannerParams.titles.length-1].fontSize*2
+    }
   setBannerParams({
     ...bannerParams,
     titles: [...bannerParams.titles, newTitle]
-  })
+    }) 
+    
 }
+
 
 const setDestLink = (link) => {
   setBannerParams({
@@ -164,7 +194,13 @@ const setDestLink = (link) => {
         <Tools bannerParams = {bannerParams} setBannerSize = {setBannerSize} 
                onAddUnderlayColor = {setUnderlayColors} onDeleteUnderlayColor = {onDeleteUnderlayColor} 
                setPicLink = {setPicLink} setPicScaleX = {setPicScaleX} setPicScaleY = {setPicScaleY}
-               addTitle = {addTitle} setFontSize = {setFontSize} setFontColor = {setFontColor}
+
+               onTitleInput = {onTitleInput}
+               setFontColor = {setFontColor}
+               setFontSize = {setFontSize}
+               onAddLine = {onAddLine}
+
+
                setDestLink = {setDestLink}
         />
       </div>

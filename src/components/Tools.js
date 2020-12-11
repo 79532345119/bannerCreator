@@ -9,6 +9,8 @@ import { Underlay } from "./tools/Underlay"
 
 export const Tools = (props)=> {
     console.log(props)
+
+
     return (
         <div className = "col pt2">
             <BannerParametersForm bannerParams = {props.bannerParams.bannerSize} 
@@ -19,8 +21,12 @@ export const Tools = (props)=> {
             <PictureParam picLink={props.bannerParams.picture.link} 
                           setPicLink={props.setPicLink} picScaleX={props.bannerParams.picture.scaleX} picScaleY={props.bannerParams.picture.scaleY}
                           setPicScaleX={props.setPicScaleX} setPicScaleY={props.setPicScaleY} />
-            <Title titles={props.bannerParams.titles}
-                     />
+            <Title  
+                titles={props.bannerParams.titles}
+                onTitleInput = {props.onTitleInput}
+                setFontColor = {props.setFontColor}
+                setFontSize = {props.setFontSize}
+                onAddLine = {props.onAddLine} />
 
 
 
