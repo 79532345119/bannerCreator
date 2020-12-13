@@ -3,6 +3,8 @@ import React from "react"
 
 export const PictureParam =(props) => {
 
+    console.log("render PictureParam")
+
     return (
         <div className = "tools_elem">
         <label htmlFor="picLink">ссылка на картинку</label>

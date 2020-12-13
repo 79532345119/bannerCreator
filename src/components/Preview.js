@@ -15,9 +15,11 @@ export const Preview = (props) => {
       return params.underlayColors[0]? params.underlayColors[0].color : "lightgrey"
     }
   }
-
-
-
+  
+    let image = new Image()
+    image.src = `${params.picture.link}`
+    image.setAttribute('crossOrigin', 'anonymous')
+    
     useEffect(()=>{
         const canvas = document.getElementById("canvas")
         let ctx = canvas.getContext("2d")
@@ -25,28 +27,22 @@ export const Preview = (props) => {
         ctx.canvas.height = params.bannerSize.height
 
         ctx.fillStyle=underlayColorCreator(params.underlayColors)
-
         ctx.fillRect(0, 0, params.bannerSize.width, params.bannerSize.height)
+      
 
-        
-        let image = new Image()
-        image.src = `${params.picture.link}`
         image.onload = () => {
-          ctx.drawImage(image, params.picture.x, params.picture.y, params.picture.scaleX, params.picture.scaleY);
-          ctx.fillStyle=`${params.primaryFontSizeColor}`
-          ctx.font=`${params.primaryFontSize}px Arial`
-          ctx.fillText(`${params.primaryTitleValue}`, 150, 300)
-          ctx.fillStyle=`${params.secondaryFontSizeColor}`
-          ctx.font=`${params.secondaryFontSize}px Arial`
-          ctx.fillText(`${params.secondaryTitleValue}`, 150, 450)
-          ctx.fillStyle=`${params.secondary2FontSizeColor}`
-          ctx.font=`${params.secondary2FontSize}px Arial`
-          ctx.fillText(`${params.secondary2TitleValue}`, 150, 600)
+          ctx.drawImage(image, params.picture.x, params.picture.y, params.picture.scaleX, params.picture.scaleY)
+
         }
+
+        params.titles.map(param=>{
+          ctx.fillStyle=`${param.fontColor}`
+          ctx.font=`${param.fontSize}px Arial`
+          ctx.fillText(`${param.title}`, param.x, param.y)           
+        })
+
         
 
-
-        console.log(ctx)
     },[params])
 
     return (

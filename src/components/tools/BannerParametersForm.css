@@ -2,12 +2,13 @@
     display: block;
     border: blue 1px solid;
     border-radius: 5px;
-    padding: 1rem;
+    padding: 4px;
     margin: 0 auto 10px;
     background-color: lightgray;
 }
 .tools_elem:hover {
     border: blue 4px solid;
+    margin: 0 auto 5px;
 }
 .tools_elem input {
     display: block;

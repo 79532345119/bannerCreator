@@ -15,10 +15,10 @@ const [bannerParams, setBannerParams] = useState({
   underlayColors: [],
   picture: {
     link: "https://www.pngkit.com/png/full/1-19983_new-car-png-car-png-for-picsart.png",
-    scaleX: 100,
-    scaleY: 100,
-    x: 10,
-    y: 10,
+    scaleX: 300,
+    scaleY: 200,
+    x: 150,
+    y: 100,
     isSelected: false
   },
   titles:[
@@ -27,7 +27,8 @@ const [bannerParams, setBannerParams] = useState({
       fontSize: 50,
       fontColor: "#000000",
       x:100,
-      y:200
+      y:(900 * 0.7),
+      isSelected: false
     }
   ], 
   destLink: '',
@@ -40,7 +41,6 @@ const setBannerSize = (bannerSize) => {
     bannerSize: bannerSize 
   })
 }
-
 
 const setUnderlayColors = (color) => {
   const newColor = {
@@ -97,10 +97,33 @@ const onMouseDown = (data) => {
   if(bannerParams.picture.scaleY + bannerParams.picture.y + 10 >= data.clientY) {
     setBannerParams({
       ...bannerParams,
-      picture: {
+            picture: {
         ...bannerParams.picture,
         isSelected: true
       }
+    })
+  }  else {
+    bannerParams.titles.forEach(title=>{
+      console.log("title.y: "+ title.y + " title.id: "+title.id + " data.clientY: "+data.clientY)
+        if(title.y +10 >= data.clientY && title.y + 10 -title.fontSize <= data.clientY) {
+          setBannerParams({
+            ...bannerParams,
+            titles: bannerParams.titles.map(item=>{
+
+              if(item.id===title.id) {
+                return {
+                  ...item,
+                  isSelected: true
+                }
+              }
+              else{
+                return {
+                  ...item
+                }
+              }
+            })
+          })
+        }
     })
   }
 }
@@ -111,7 +134,13 @@ const onMouseUp = () => {
       picture: {
         ...bannerParams.picture,
         isSelected: false
-      }
+      },
+      titles: bannerParams.titles.map(item=>{
+          return {
+            ...item,
+            isSelected: false
+          }      
+      })
     })
 }
 
@@ -125,7 +154,31 @@ const onMouseMove = (data) => {
         y: bannerParams.picture.y+data.movementY
       }
     })
-  } 
+  } else {
+    
+    bannerParams.titles.forEach(title=>{
+        if(title.isSelected) {
+          setBannerParams({
+            ...bannerParams,
+            titles: bannerParams.titles.map(item=>{
+
+              if(item.id===title.id) {
+                return {
+                  ...item,
+                  x:item.x+data.movementX,
+                  y:item.y+data.movementY,
+                }
+              }
+              else{
+                return {
+                  ...item
+                }
+              }
+            })
+          })
+        }
+    })
+  }
 }
 
 const onTitleInput = (title, id) => {

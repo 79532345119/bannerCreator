@@ -30,3 +30,6 @@ html {
 .pt2 {
     margin-top: 10px;
 }
+li {
+    list-style: none;
+}
