@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import html2canvas from 'html2canvas'
 
 export const Preview = (props) => {
 
@@ -18,7 +19,7 @@ export const Preview = (props) => {
   
     let image = new Image()
     image.src = `${params.picture.link}`
-    image.setAttribute('crossOrigin', 'anonymous')
+    /* image.setAttribute('crossOrigin', 'anonymous')  */
     
     useEffect(()=>{
         const canvas = document.getElementById("canvas")
@@ -32,7 +33,7 @@ export const Preview = (props) => {
 
         image.onload = () => {
           ctx.drawImage(image, params.picture.x, params.picture.y, params.picture.scaleX, params.picture.scaleY)
-
+console.log("image onloaded")
         }
 
         params.titles.map(param=>{
@@ -45,11 +46,30 @@ export const Preview = (props) => {
 
     },[params])
 
+    const saveAsPNG = () => {
+      
+      var canvas = document.getElementById('canvas');
+
+      canvas.toBlob(function(blob) {
+        var newImg = document.createElement('img'),
+            url = URL.createObjectURL(blob);
+      
+        newImg.onload = function() {
+          // больше не нужно читать blob, поэтому он отменен
+          URL.revokeObjectURL(url);
+        };
+      
+        newImg.src = url;
+        document.body.appendChild(newImg);
+      });
+    }
+
     return (
         <div className = "col pt2">
             <canvas id="canvas" onMouseDown={e=>props.onMouseDown(e)}
                                 onMouseUp={e=>props.onMouseUp(e)}
                                 onMouseMove={e=>props.onMouseMove(e)} >Для работы с программой нужно что-то посвежее. Обновите браузер</canvas>
+                <button onClick={saveAsPNG}>Сохранить</button>
         </div>
 
     )

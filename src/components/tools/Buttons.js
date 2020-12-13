@@ -4,16 +4,10 @@ import html2canvas from 'html2canvas'
 
 import {copyHTML} from "../../bll/exports"
 
- const exportToPng = ()=>{
-    const myCanvas = document.getElementById("canvas")
-    const myCtx = myCanvas.getContext("2d")
-    const img = myCtx.toDataURL("image/png")
-    
-    console.log(img)
-}
-
 const saveAsPNG = () => {
-    html2canvas(document.getElementById('canvas'))
+    html2canvas(document.getElementById('canvas')).then(function(canvas) {
+        document.body.appendChild(canvas)
+    })
    
   }
 
