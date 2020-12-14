@@ -10,3 +10,4 @@ export const Destination = (props) => {
         </div>       
     )
 }
+console.log(Destination)

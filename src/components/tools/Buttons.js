@@ -1,26 +1,14 @@
 import React from "react"
-import html2canvas from 'html2canvas'
+import { saveAsPNG, copyHTML } from "../../bll/exports"
 
 
-import {copyHTML} from "../../bll/exports"
-
-const saveAsPNG = () => {
-    html2canvas(document.getElementById('canvas')).then(function(canvas) {
-        document.body.appendChild(canvas)
-        console.log(canvas)
-    })
-   
-  }
-
-export const Buttons = () => {
+export const Buttons = (props) => {
     return (
         <div className = "tools_elem">
             <button className="btn" onClick = {saveAsPNG}>Сохранить в png</button>
-            <button className="btn" onClick={copyHTML}>Скопировать баннер в буфер как html</button>
-            <button className="btn">Скопировать конфигурацию как json</button>
+            <button className="btn" onClick={e=>copyHTML(props.destLink)}>Скопировать баннер в буфер как html</button>
+            <button className="btn" onClick = {props.exportToJSON}>Скопировать конфигурацию как json</button>
         </div>
 
     )
 }
-
-

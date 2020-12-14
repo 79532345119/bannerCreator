@@ -8,8 +8,6 @@ import { Underlay } from "./tools/Underlay"
 
 
 export const Tools = (props)=> {
-    console.log(props)
-
 
     return (
         <div className = "col pt2">
@@ -32,7 +30,7 @@ export const Tools = (props)=> {
 
 
             <Destination destLink={props.bannerParams.destLink} setDestLink={props.setDestLink} />
-            <Buttons />
+            <Buttons destLink={props.bannerParams.destLink} exportToJSON = {props.exportToJSON} />
         </div>
     )
 }

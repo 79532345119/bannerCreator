@@ -1,7 +1,7 @@
 import React from "react"
 
 export const Title = (props) =>{
-   console.log("render Title")
+
    return (<ul className="tools_elem" >
               <label htmlFor="title">введите слоган</label>
               {(props.titles.length <3) ? <button onClick={props.onAddLine} >добавить строку</button> : null }
