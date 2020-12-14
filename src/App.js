@@ -2,8 +2,21 @@ import { useState } from 'react';
 import './App.css';
 import { Preview } from './components/Preview';
 import { Tools } from './components/Tools';
+import imageToBase64 from "image-to-base64"
 
 function App() {
+
+   imageToBase64("https://www.pngkit.com/png/full/1-19983_new-car-png-car-png-for-picsart.png") // Image URL
+    .then(
+        (response) => {
+            console.log(response); // "iVBORw0KGgoAAAANSwCAIA..."
+        }
+    )
+    .catch(
+        (error) => {
+            console.log(error); // Logs an error if there was one
+        }
+    ) 
 
 const [bannerParams, setBannerParams] = useState({
   bannerSize: {

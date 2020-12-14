@@ -7,6 +7,7 @@ import {copyHTML} from "../../bll/exports"
 const saveAsPNG = () => {
     html2canvas(document.getElementById('canvas')).then(function(canvas) {
         document.body.appendChild(canvas)
+        console.log(canvas)
     })
    
   }
