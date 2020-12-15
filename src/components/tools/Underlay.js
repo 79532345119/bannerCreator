@@ -28,7 +28,7 @@ export const Underlay = (props) => {
 
                     props.onAddUnderlayColor.bind(null, tempUnderlayColor)
                     
-                    }  style={{color: "red"}} >добавить цвет</button>
+                    } >добавить цвет</button>
             </span>
 
 

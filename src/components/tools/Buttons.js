@@ -3,6 +3,7 @@ import { saveAsPNG, copyHTML } from "../../bll/exports"
 
 
 export const Buttons = (props) => {
+
     return (
         <div className = "tools_elem">
             <button className="btn" onClick = {saveAsPNG}>Сохранить в png</button>

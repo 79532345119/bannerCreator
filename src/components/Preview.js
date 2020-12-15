@@ -19,7 +19,7 @@ export const Preview = (props) => {
   
     let image = new Image()
     image.src = `${params.picture.link}`
-    
+
     useEffect(()=>{
         const canvas = document.getElementById("canvas")
         let ctx = canvas.getContext("2d")
@@ -27,7 +27,7 @@ export const Preview = (props) => {
         ctx.canvas.height = params.bannerSize.height
 
         ctx.fillStyle=underlayColorCreator(params.underlayColors)
-        ctx.fillRect(0, 0, params.bannerSize.width, params.bannerSize.height)
+        ctx.fillRect(0, 0, params.bannerSize.width, params.bannerSize.height)  
 
         params.titles.map(param=>{
           ctx.fillStyle=`${param.fontColor}`
