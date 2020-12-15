@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { data } from './bll/data'
+import {data} from './bll/data'
 import './App.css';
 import { Preview } from './components/Preview';
 import { Tools } from './components/Tools';
@@ -79,6 +79,7 @@ const onMouseDown = (data) => {
     })
   }  else {
     bannerParams.titles.forEach(title=>{
+      console.log("title.y: "+ title.y + " title.id: "+title.id + " data.clientY: "+data.clientY)
         if(title.y +10 >= data.clientY && title.y + 10 -title.fontSize <= data.clientY) {
           setBannerParams({
             ...bannerParams,
